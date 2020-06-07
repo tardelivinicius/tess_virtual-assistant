@@ -85,6 +85,11 @@ def send_command(micro, result):
         s.Popen(['C:/Program Files (x86)/Google/Chrome/Application/chrome.exe', 'https://meet.google.com/pyf-vxry-nnc?authuser=1', 'gmail.com', 'take5.monday.com'])
         # Abrir Telegram
         s.Popen('C:/Users/Vinícius Valle/AppData/Roaming/Telegram Desktop/Telegram.exe')
+    elif 'sistema' in command:
+        gtts_playsound('system_info', 'Buscando informações do sistema atual')
+        print('Processador:', s.run('wmic cpu get name'))
+        print('Placa Mãe:', s.run('wmic baseboard get product'))
+        print('Memória Ram', s.run('wmic MemoryChip get BankLabel, Capacity, MemoryType, TypeDetail, Speed'))
     elif 'desligar' in command:
         remove_all_audios()
         exit()
